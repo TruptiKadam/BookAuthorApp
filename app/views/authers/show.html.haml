@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p= "First Name : #{@auther.first_name}"
+%p= "Last Name : #{@auther.last_name}"
+%p= "Date Of Birth : #{@auther.date_of_birth}"
+
+= link_to 'Edit', edit_auther_path(@auther)
+|
+= link_to 'Back', authers_path

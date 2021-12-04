@@ -1,0 +1,11 @@
+- authers = Auther.pluck(:first_name, :last_name, :id).map{|a| ["#{a[0]} #{a[1]}", a[2]]}
+%div.nested-fields
+    = f.hidden_field :_destroy
+    %div
+        = f.label :author
+        = f.select :id, authers
+
+    %div
+        = link_to "Remove", '#', class: "remove_fields"
+
+%br

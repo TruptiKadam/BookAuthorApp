@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p= "Book Title : #{@book.book_title}"
+
+%p Authors :
+
+- @book.authers.each do |auther|
+	%p= "Name: #{auther.first_name} #{auther.last_name}"
+= link_to 'Edit', edit_book_path(@book)
+|
+= link_to 'Back', books_path

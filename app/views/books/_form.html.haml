@@ -1,0 +1,24 @@
+- auther_count = Auther.count
+- if auther_count > 0
+  = form_for(@book) do |f|
+    - if @book.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@book.errors.count, "error")
+          prohibited this book from being saved:
+        %ul
+          - @book.errors.full_messages.each do |message|
+            %li= message
+    %div
+      = f.label :title
+      %br
+      = f.text_field :book_title
+    %br
+    %div
+      = f.fields_for :authers do |authers_form|
+        = render "auther_fields", f: authers_form
+      = link_to_add_fields "Add Author", f, :authers
+    .actions
+      = f.submit
+- else
+  %p You need to first add author to create book record.
